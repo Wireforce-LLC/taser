@@ -271,7 +271,11 @@ async def interact(connection: prompt_toolkit.contrib.telnet.server.TelnetConnec
 
 
 async def main_server(port: int):
-  server = TelnetServer(interact=interact, port=port)
+  server = TelnetServer(
+    interact=interact,
+    port=port,
+    host="0.0.0.0"
+  )
   server.start()
 
   # Run forever.
@@ -281,8 +285,8 @@ async def main_server(port: int):
 def main():
   port = find_free_port()
 
-  print(f"🖥  URL: telnet://{'localhost'}:{port} or")
-  print(f"telnet {'localhost'} {port}")
+  print(f"🖥  URL: telnet://{'0.0.0.0'}:{port} or")
+  print(f"telnet {'0.0.0.0'} {port}")
 
   try:
     run(main_server(port))
