@@ -1,0 +1,6 @@
+[
+    {
+        "role": "user",
+        "content": "Lighten the code, cut unnecessary constructs, remove unnecessary spaces and imports. Remove comments. Check the code for bugs and if there are any, fix them. rename the variables. Don't touch the names of the classes. Swap the order of functions where possible. Remember the constructions if to switch or when. Also remember to try to remove runOnUiThread. "
+    }
+]

@@ -1,0 +1,313 @@
+version: '1'
+libs:
+  room:
+    name: Room
+    description:
+    imports:
+      - 'androidx.room.Room'
+      - 'androidx.room.RoomDatabase'
+      - 'androidx.room.Dao'
+      - 'androidx.room.Database'
+      - 'androidx.room.Entity'
+      - 'androidx.room.Entity'
+
+    weight: 0.4
+    significance: "middle"
+
+  unityads:
+    name: Unity ADs
+    description:
+    imports:
+      - 'com.unity3d.ads.UnityAds'
+      - 'com.unity3d.services.banners.BannerView'
+
+    weight: 0.05
+    significance: "low"
+
+  onesignal:
+    name: One Signal
+    description:
+    imports:
+      - 'com.onesignal.OneSignal'
+
+    weight: 0.01
+    significance: "very-low"
+
+  appsflyer:
+    name: Apps Flyer
+    description:
+    imports:
+      - 'com.appsflyer.AppsFlyerConversionListener'
+      - 'com.appsflyer.AppsFlyerLib'
+
+    weight: 0.08
+    significance: "middle"
+
+  adjust:
+    name: Adjust
+    description:
+    imports:
+      - 'com.adjust.sdk.Adjust'
+      - 'com.adjust.sdk.AdjustConfig'
+
+    weight: 0.08
+    significance: "middle"
+
+  firebase:
+    name: Firebase
+    description:
+    imports:
+      - 'com.google.firebase.FirebaseApp'
+
+    weight: 0.08
+    significance: "middle"
+
+  retrofit2:
+    name: Retrofit
+    description:
+    imports:
+      - 'retrofit2.Response'
+      - 'retrofit2.Retrofit'
+      - 'retrofit2.Call'
+
+    weight: 0.35
+    significance: "middle"
+
+  okhttp3:
+    name: OkHttp3
+    description:
+    imports:
+      - 'okhttp3.Request'
+      - 'okhttp3.Response'
+
+    weight: 0.14
+    significance: "middle"
+
+  javarx:
+    name: Java RX
+    description:
+    imports:
+      - 'io.reactivex.Observable'
+      - 'io.reactivex.Observer'
+
+    weight: 0.6
+    significance: "high"
+
+  dagger2:
+    name: Dagger 2
+    description:
+    imports:
+      - 'dagger.Component'
+      - 'dagger.Module'
+      - 'dagger.Provides'
+
+    weight: 2
+    significance: "hot"
+
+  react_native:
+    name: React Native
+    description:
+    imports:
+      - 'com.facebook.react.PackageList'
+      - 'com.facebook.react.ReactActivity'
+      - 'com.facebook.react.ReactActivityDelegate'
+      - 'com.facebook.react.ReactApplication'
+      - 'com.facebook.react.ReactNativeHost'
+      - 'com.facebook.react.ReactPackage'
+
+    weight: 0.9
+    significance: "high"
+
+  butterknife:
+    name: Butter Knife
+    description: Library for binding views
+    imports:
+      - 'butterknife.BindView'
+      - 'butterknife.ButterKnife'
+      - 'butterknife.Unbinder'
+
+    weight: 0.3
+    significance: "middle"
+
+  glide:
+    name: Glide
+    description: Library for loading and caching images
+    imports:
+      - 'com.bumptech.glide.Glide'
+      - 'com.bumptech.glide.RequestManager'
+      - 'com.bumptech.glide.request.RequestOptions'
+
+    weight: 0.08
+    significance: "low"
+
+  picasso:
+    name: Picasso
+    description: Library for loading and caching images
+    imports:
+      - 'com.squareup.picasso.Picasso'
+      - 'com.squareup.picasso.RequestCreator'
+      - 'com.squareup.picasso.RequestTransformer'
+
+    weight: 0.08
+    significance: "low"
+
+  event_bus:
+    name: EventBus
+    description: Library for communication between different parts of the application
+    imports:
+      - 'org.greenrobot.eventbus.EventBus'
+      - 'org.greenrobot.eventbus.Subscribe'
+      - 'org.greenrobot.eventbus.ThreadMode'
+
+    weight: 0.3
+    significance: "middle"
+
+  koin:
+    name: Koin
+    description: Library for Dependecy injection
+    imports:
+      - 'org.koin.core.KoinComponent'
+      - 'org.koin.core.inject'
+      - 'org.koin.core.qualifier.named'
+      - 'org.koin.dsl.module'
+
+    weight: 1.4
+    significance: "hot"
+
+  javarx3:
+    name: RxJava
+    description: Library for Reactive programming
+    imports:
+      - 'io.reactivex.rxjava3.android.schedulers.AndroidSchedulers'
+      - 'io.reactivex.rxjava3.core.Observable'
+      - 'io.reactivex.rxjava3.disposables.Disposable'
+      - 'io.reactivex.rxjava3.schedulers.Schedulers'
+
+    weight: 0.6
+    significance: "high"
+
+  androidx_lifecycle:
+    name: AndroidX Lifecycle
+    description: Library for lifecycle management
+    imports:
+      - 'androidx.lifecycle.ViewModel'
+      - 'androidx.lifecycle.ViewModelProvider'
+      - 'androidx.lifecycle.LiveData'
+      - 'androidx.lifecycle.Observer'
+
+    weight: 0.08
+    significance: "middle"
+
+  timber:
+    name: Timber
+    description: Library for logging
+    imports:
+      - 'timber.log.Timber'
+      - 'timber.log.Timber.DebugTree'
+
+    weight: 0.03
+    significance: "low"
+
+  coroutines:
+    name: Kotlin Coroutines
+    description: Library for asynchronous programming
+    imports:
+      - 'kotlinx.coroutines.CoroutineScope'
+      - 'kotlinx.coroutines.Dispatchers'
+      - 'kotlinx.coroutines.GlobalScope'
+      - 'kotlinx.coroutines.launch'
+
+    weight: 0.21
+    significance: "middle"
+
+  gson:
+    name: Gson
+    description: Library for serialization/deserialization
+    imports:
+      - 'com.google.gson.Gson'
+      - 'com.google.gson.GsonBuilder'
+      - 'com.google.gson.JsonObject'
+
+    weight: 0.03
+    significance: "low"
+
+  leakCanary:
+    name: LeakCanary
+    description: Library for memory leaks detection
+    imports:
+      - 'com.squareup.leakcanary.AndroidExcludedRefs'
+      - 'com.squareup.leakcanary.LeakCanary'
+      - 'com.squareup.leakcanary.RefWatcher'
+
+    weight: 1.2
+    significance: "hot"
+
+  threeTenAbp:
+    name: ThreeTenABP
+    description: Library for date/time manipulation
+    imports:
+      - 'org.threeten.bp.Instant'
+
+    weight: 0.04
+    significance: "low"
+
+  autovalue:
+    name: AutoValue
+    description: Library for code generation of value classes
+    imports:
+      - 'com.google.auto.value.AutoValue'
+
+    weight: 0.04
+    significance: "low"
+
+  mockito:
+    name: Mockito
+    description: Library for unit testing
+    imports:
+      - 'org.mockito.Mock'
+      - 'org.mockito.Mockito'
+
+    weight: 0.02
+    significance: "low"
+
+
+  espresso:
+    name: Espresso
+    description: Library for UI testing
+    imports:
+      - 'androidx.test.espresso.Espresso'
+      - 'androidx.test.espresso.action.ViewActions'
+
+    weight: 0.09
+    significance: "middle"
+
+  stetho:
+    name: Stetho
+    description: Debugging library for Android
+    imports:
+      - 'com.facebook.stetho.Stetho'
+      - 'com.facebook.stetho.okhttp3.StethoInterceptor'
+
+    weight: 0.1
+    significance: "middle"
+
+  dexter:
+    name: Dexter
+    description: Library for runtime permission management
+    imports:
+      - 'com.karumi.dexter.Dexter'
+      - 'com.karumi.dexter.PermissionToken'
+
+    weight: 0.1
+    significance: "middle"
+
+
+  workmanager:
+    name: WorkManager
+    description: Library for managing background tasks
+    imports:
+      - 'androidx.work.WorkManager'
+      - 'androidx.work.WorkRequest'
+
+    weight: 0.27
+    significance: "middle"

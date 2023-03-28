@@ -1,0 +1,6 @@
+[
+    {
+        "role": "user",
+        "content": "I wrote code from several files. What recommendations will you give for each file? What can I change to make the code better? Its a Andoroid Studio and Java 8"
+    }
+]

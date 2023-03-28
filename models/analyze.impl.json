@@ -1,0 +1,6 @@
+[
+    {
+        "role": "user",
+        "content": "Please check all the libraries I use in glradle to see if any are infected or too obsolete."
+    }
+]

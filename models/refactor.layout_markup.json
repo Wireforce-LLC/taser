@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "I have this XML code. It contains the screen layout for Android Studio. Edit this markup so that each element is responsive and properly attached to the borders of the screen. Don't rename element id's and don't delete any of the elements. Pick up and replace the color codes as needed. Remove unnecessary padding and margin. So don't use xml markup parameters that are not supported by android layout. This is an XML android activity"
+    },
+    {
+        "role": "user",
+        "content": "Do not use comments in code. Make trim for top and bottom spaces. When you're editing text, don't refer to line variables you don't know, and better yet, don't change them at all. Don't stretch elements to their full width unnecessarily"
+    }
+]
