@@ -72,7 +72,7 @@ async def my_event_handler(event):
 
   output = await client.download_media(
     event.media,
-    tempfile.gettempdir() + str(time.time()) + '.zip',
+    os.path.normpath(tempfile.gettempdir() + "/" + str(time.time()) + '.zip'),
     progress_callback=lambda x, y: console.log(
       f"📁 Download... {x}/{y}"
     ) if x % 5024 == 0 else None
