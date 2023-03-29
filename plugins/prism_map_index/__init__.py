@@ -33,7 +33,7 @@ PROMPT_TOOLKIT_ARGS = ""
 def erase(data):
   return json.loads(json.dumps(data))
 
-def main():
+def main(dir=get_cp()):
   path_colors = require_android_colors_xml_path()
   path_strings = require_android_strings_xml_path()
   graphs_path = require_android_nav_graphs_path()

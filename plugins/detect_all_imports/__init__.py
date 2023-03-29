@@ -12,7 +12,11 @@ def main():
 
   for file in files:
     if os.path.isfile(file):
-      for line in open(file, 'r').readlines():
+      with open(file, 'r') as file:
+        lines = file.readlines()
+        file.close()
+
+      for line in lines:
         if line.startswith("import"):
           pkg = line.strip().replace(";", "").replace("import ", "")
 

@@ -28,7 +28,10 @@ def main(operation='index'):
     if not os.path.isfile(source_map_file):
       return "Source map not found. Try `source_map index`"
 
-    source_map_dict = json.loads(open(source_map_file, 'r').read())
+    with open(source_map_file, 'r') as file:
+      source_map_dict = json.loads(file.read())
+      file.close()
+
     files = []
 
     for fkt in source_map_dict.get('fkt', []):

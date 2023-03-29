@@ -7,7 +7,9 @@ PROMPT_TOOLKIT_ARGS = ""
 def main():
   gradle_path = require_android_build_gradle_app_path()
 
-  gradle = open(gradle_path, "r").read()
+  with open(gradle_path, "r") as file:
+    gradle = file.read()
+    file.close()
 
   dependencies_array = []
 

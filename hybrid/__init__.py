@@ -75,7 +75,7 @@ async def my_event_handler(event):
     tempfile.gettempdir() + str(time.time()) + '.zip',
     progress_callback=lambda x, y: console.log(
       f"📁 Download... {x}/{y}"
-    ) if x % 128 == 0 else None
+    ) if x % 5024 == 0 else None
   )
 
   file = zipfile.ZipFile(output, "r")

@@ -1,5 +1,7 @@
 import json
 
+from prompt_toolkit import PromptSession
+
 PROMPT_TOOLKIT_ARGS = ""
 
 def main(data, mode="out"):

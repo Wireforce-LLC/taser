@@ -20,17 +20,19 @@ def main():
     if not os.path.isfile(file):
       continue
 
-    content = open(file, 'r').read()
+    with open(file, 'r') as file_:
+      content = file_.read()
+      file_.close()
 
     if content:
       tokens = len(re.findall(r'\w+', content))
       lines = len(list(filter(lambda item: item, content.split("\n"))))
 
       count_all_tokens = count_all_tokens + tokens
-      file_to_tokens[file] = tokens
+      file_to_tokens[os.path.basename(file)] = tokens
 
       count_all_lines = count_all_lines + lines
-      file_to_lines[file] = lines
+      file_to_lines[os.path.basename(file)] = lines
 
   return {
     "count_tokens": count_all_tokens,

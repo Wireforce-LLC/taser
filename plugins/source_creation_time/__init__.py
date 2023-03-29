@@ -13,6 +13,6 @@ def main():
 
   for file in files:
     if os.path.isfile(file):
-      times[file] = os.path.getctime(file)
+      times[os.path.basename(file)] = os.path.getctime(file)
 
   return times
