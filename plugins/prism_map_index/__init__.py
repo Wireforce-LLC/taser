@@ -100,7 +100,11 @@ def main(dir=get_cp()):
       })
 
   up_to_date_implementations_map = list(map(lambda x: x['up_to_date'], up_to_date_implementations))
-  up_to_date_percent = up_to_date_implementations_map.count(True) / len(up_to_date_implementations_map)
+
+  if len(up_to_date_implementations_map) != 0:
+    up_to_date_percent = up_to_date_implementations_map.count(True) / len(up_to_date_implementations_map)
+  else:
+    up_to_date_percent = 0
 
   revisoro_percent = 0
   
