@@ -19,10 +19,10 @@ def is_port_in_use(port: int) -> bool:
     return s.connect_ex(('localhost', port)) == 0
 
 
-# if not is_port_in_use(5037):
-#   os.system(shlex_quote(adb_lib_path))
-
-client = AdbClient(host="127.0.0.1", port=5037)
+if is_port_in_use(5037):
+  client = AdbClient(host="127.0.0.1", port=5037)
+else:
+  client = None
 
 
 def open_app(device: str | ppadb.device.Device, app_id: str):

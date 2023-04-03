@@ -1,6 +1,7 @@
 import hashlib
 import os
 import pathlib
+import shutil
 import time
 import tempfile
 import zipfile
@@ -53,6 +54,9 @@ async def my_event_handler(event):
   if not event.media:
     return
 
+  if not event.media.document:
+    return
+
   if event.media.document.attributes:
     filename = event.media.document.attributes[0].file_name
 
@@ -65,6 +69,15 @@ async def my_event_handler(event):
   final_source_path = f"./mount/sources/{event.media.document.id}"
 
   if os.path.isdir(final_source_path):
+    for dir in os.scandir(final_source_path):
+      gradle_root_dir_name_build_optimize = final_source_path + "/" + dir.name + "/app/build"
+
+      if os.path.isdir(gradle_root_dir_name_build_optimize):
+        # Optimize size
+        console.log("🗄 Privileged storage optimization...")
+        shutil.rmtree(gradle_root_dir_name_build_optimize)
+        console.log("🗄 Storage optimized")
+
     console.log("📍 This source has already been analyzed ")
     return
 
@@ -137,14 +150,17 @@ async def my_event_handler(event):
     gradle_root_dir_name = os.path.abspath(os.path.dirname(gradles[0]))
 
     if is_android_dir(gradle_root_dir_name):
+      gradle_root_dir_name_build_optimize = gradle_root_dir_name + "/app/build/"
+      
+      # Optimize size
+      if os.path.isdir(gradle_root_dir_name_build_optimize):
+        console.log("🗄 Optimizing storage...")
+        shutil.rmtree(gradle_root_dir_name_build_optimize)
+        console.log("🗄 Storage optimized")
+
       repo = Repo.init(gradle_root_dir_name)
       repo.git.add(all=True)
       repo.index.commit("Created source code")
-      # origin = repo.create_remote("origin", "")
-      # origin.fetch()
-      # repo.create_head("master", origin.refs.master)
-      # repo.heads.master.set_tracking_branch(origin.refs.master)
-      # repo.heads.master.checkout(True)
 
       set_cp(gradle_root_dir_name)
 

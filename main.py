@@ -11,6 +11,7 @@ from prompt_toolkit.lexers import PygmentsLexer
 from pygments.lexers.python import Python3Lexer
 
 import adapter.telnet
+import adapter.cli
 import executor
 import inspectors
 import hybrid

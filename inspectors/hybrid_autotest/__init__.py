@@ -1,3 +1,6 @@
+import os
+import shutil
+import sys
 from datetime import datetime
 from elasticsearch import Elasticsearch
 from pandas import Timestamp
@@ -28,45 +31,7 @@ def test(dir, meta):
   doc = plugins.prism_map_index.erase(plugins.prism_map_index.main(dir))
   score = plugins.prism_map_index.erase(plugins.general_score_by_prism.main(doc))
 
-  report = es.index(
-    index='report',
-    document={
-      'created_at': Timestamp.now(),
-      'score': score,
-      'namespace_app': str(doc["namespace_app"]),
-      'meta': meta
-    }
-  )
-
-  net = es.index(
-    index='net',
-    document={
-      'created_at': Timestamp.now(),
-      'namespace_app': str(doc["namespace_app"]),
-      'sender_id': meta.get('sender_id'),
-    }
-  )
-
   revisoro_warn_files = []
-
-  if doc.get('revesiro', None):
-    revisoro_warn_files = list(
-      map(
-        lambda x: x.get('package_name'),
-        doc.get('revesiro', {}).get('warn_files')
-      )
-    )
-
-  revisoro = es.index(
-    index='revisoro',
-    document={
-      'created_at': Timestamp.now(),
-      'namespace_app': str(doc["namespace_app"]),
-      'sender_id': meta.get('sender_id'),
-      'revisoro_percent': doc.get('revisoro_percent', -1),
-      'revisoro_used_apps': uniq(revisoro_warn_files),
-    }
-  )
 
   count_docs = mongo_docs.docs.count_documents({
     'vpath': vpath,
@@ -78,13 +43,61 @@ def test(dir, meta):
       'vpath': vpath,
       'created_at': datetime.utcnow(),
       'source_map': doc,
-      'meta': meta
+      'meta': meta,
+      'file_stat': os.stat(dir)
     })
+
+    report = es.index(
+      index='report',
+      document={
+        'created_at': Timestamp.now(),
+        'score': score,
+        'namespace_app': str(doc["namespace_app"]),
+        'meta': meta
+      }
+    )
+
+    if doc.get('revesiro', None):
+      revisoro_warn_files = list(
+        map(
+          lambda x: x.get('package_name'),
+          doc.get('revesiro', {}).get('warn_files')
+        )
+      )
+
+    revisoro = es.index(
+      index='revisoro',
+      document={
+        'created_at': Timestamp.now(),
+        'namespace_app': str(doc["namespace_app"]),
+        'sender_id': meta.get('sender_id'),
+        'revisoro_percent': doc.get('revisoro_percent', -1),
+        'revisoro_used_apps': uniq(revisoro_warn_files),
+      }
+    )
+
+    net = es.index(
+      index='net',
+      document={
+        'created_at': Timestamp.now(),
+        'namespace_app': str(doc["namespace_app"]),
+        'sender_id': meta.get('sender_id'),
+      }
+    )
 
   else:
     inserted_doc = None
 
   inspect(score)
+
+  if 'opt-storage' in sys.argv:
+    try:
+      console.log("🗄 Optimizing storage...")
+      shutil.rmtree(dir)
+      console.log("🗄 Storage optimized")
+
+    except:
+      pass
 
   # console.log(f"ElasticSearch: report/{report['result']} inserted_doc/{inserted_doc} net/{net['result']}")
   # console.log(f"ElasticSearch: doc/{False} and report/{report['result']}")

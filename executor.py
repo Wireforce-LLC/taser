@@ -63,7 +63,11 @@ for plug in discovered_plugins:
 
 
 def input_execute(text: str):
-  env['_adb_devices_'] = adb.client.devices()
+  try:
+    env['_adb_devices_'] = adb.client.devices()
+  except:
+    env['_adb_devices_'] = []
+
   env['_java_'] = discovered_plugins['plugins.teleport_src_main_java'].main()
   env['PWD'] = get_cp()
   env['eval'] = lambda x: print("Hey! What are you up to? These operations are blocked for security reasons")
