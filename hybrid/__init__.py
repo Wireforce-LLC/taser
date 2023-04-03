@@ -1,4 +1,5 @@
 import hashlib
+import json
 import os
 import pathlib
 import shutil
@@ -19,6 +20,7 @@ from telethon.tl.functions.messages import SendReactionRequest
 import hybrid
 import inspectors
 from cp import set_cp
+from inspectors.hybrid_autotest import es
 from sdk.is_android_dir import is_android_dir
 from sdk.validation import validate_path_list_is_a_android_studio_project, find_files
 
@@ -36,6 +38,68 @@ api_hash = hybrid_configs.get('telegram_api_hash')
 client = TelegramClient('./mount/taser_account_2', api_id, api_hash)
 
 TASER_CLOUD_URL = hybrid_configs.get('taser_cloud_url')
+
+
+def sizeof_fmt(num, suffix="B"):
+  for unit in ["", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi"]:
+    if abs(num) < 1024.0:
+      return f"{num:3.1f}{unit}{suffix}"
+    num /= 1024.0
+  return f"{num:.1f}Yi{suffix}"
+
+@client.on(events.NewMessage(pattern='(?i)getPing'))
+async def handler(event):
+  await event.respond('Obtain pong')
+
+
+@client.on(events.NewMessage(pattern='(?i)getMem'))
+async def handler(event):
+  # Path
+  path = "./mount"
+
+  # Get the disk usage statistics
+  # about the given path
+  stat = shutil.disk_usage(path)
+
+  await event.respond('Obtain mem: ' + str(sizeof_fmt(stat.free)))
+
+
+@client.on(events.NewMessage(pattern='(?i)getScore'))
+async def handler(event):
+
+  if event.reply_to:
+    reply = await event.message.get_reply_message()
+
+    if not reply.media:
+      return
+
+    if not reply.media.document:
+      return
+
+    if reply.media.document.attributes:
+      filename = reply.media.document.attributes[0].file_name
+
+    rep = es.search(index="report", query={
+       'match': {
+          'meta.filename': str(filename)
+        }
+    })
+
+    total_found = rep.body.get('hits').get('total').get('value')
+
+    if total_found:
+      await event.respond('Total: ' + str(total_found))
+
+      for hit in rep.body.get('hits').get('hits'):
+        await event.respond("\n".join(
+          [
+            "Score: " + str(hit.get('_source').get('score').get('score')),
+            "Namespace: " + str(hit.get('_source').get('namespace_app'))
+          ]
+        ))
+
+    else:
+      await event.respond('I dont know ' + str(filename))
 
 
 @client.on(events.NewMessage)
