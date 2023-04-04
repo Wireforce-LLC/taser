@@ -14,7 +14,7 @@ import plugins.prism_map_index
 import plugins.general_score_by_prism
 
 es = Elasticsearch("http://172.81.180.191:9241/")
-mongo = MongoClient('mongodb://172.81.180.191:27017/')
+mongo = MongoClient('mongodb://NhldP4dB8bOWQWFHlCoYtu5wdGQ8JIyoLRkWxAqQ:dldgu8dbfxb037rJse1kfFIQmlZw30dKHtDiQCFb@172.81.180.191:8881/')
 
 console = Console()
 
