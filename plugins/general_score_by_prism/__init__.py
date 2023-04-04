@@ -80,7 +80,6 @@ def main(prism_report: dict = None):
       "x_tokens": round(x_tokens, 2),
       "x_string": round(x_string, 2),
       "x_permissions": round(x_permissions, 2),
-      "x_revisoro": round(x_revisoro, 2),
       "x_libs_stack_weights": round(x_libs_stack_weights, 2)
     }
   }

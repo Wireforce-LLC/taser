@@ -132,6 +132,7 @@ def main(dir=get_cp()):
     "libs_stack": libs_stack,
     "ro2": ro2,
     "revesiro": revesiro,
+    "revisoro": revesiro,
     "up_to_date_implementations": up_to_date_implementations,
     "up_to_date_percent": up_to_date_percent * 100,
     "revisoro_percent": revisoro_percent,

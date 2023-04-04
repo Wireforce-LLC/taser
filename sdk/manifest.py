@@ -37,7 +37,11 @@ def read_activities(manifest: str = require_android_manifest_path()):
         for activity in activities:
             isMain = False
             name = activity.getAttribute('android:name')
-            intents = activity.getElementsByTagName('intent-filter')
+            try:
+              intents = activity.getElementsByTagName('intent-filter')
+            except:
+              intents = []
+
             for intent in intents:
                 actions = intent.getElementsByTagName('action')
                 for action in actions:
