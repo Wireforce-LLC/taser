@@ -44,6 +44,7 @@ def main(prism_report: dict = None):
 
   y_color = 0
   y_tokenize_ratio_anomaly = 0
+  y_big_file_lines = 0
 
   if prism_report.get('tokenize', {}).get("is_significant_anomaly", False):
     y_tokenize_ratio_anomaly = prism_report.get('tokenize', {}).get("ratio_anomaly", 0) / 10
@@ -63,8 +64,19 @@ def main(prism_report: dict = None):
   if "#FF018786" in xml_colors:
     y_color = y_color + 0.06
 
+  y_big_files_list = prism_report.get('tokenize', {}).get("files_lines", [])
+  
+  for file in y_big_files_list:
+    # 2500 * 1.8/2500
+    y_big_files = y_big_files_list[file]
+
+    if y_big_files > 2500:
+      xy = y_big_files * (y_big_files / 2500 * 0.6) / 2500
+      y_big_file_lines = y_big_file_lines + xy
+
+
   score = x_activity + x_fragments + x_tokens + x_string + x_permissions + x_libs_stack_weights
-  fine = y_color + x_revisoro + y_tokenize_ratio_anomaly
+  fine = y_color + x_revisoro + y_tokenize_ratio_anomaly + y_big_file_lines
 
   return {
     "score": round(score - fine, 4),
@@ -72,6 +84,7 @@ def main(prism_report: dict = None):
     "fine_x": {
       "x_revisoro": round(x_revisoro, 2),
       "y_color": round(y_color, 2),
+      "y_big_file_lines": round(y_big_file_lines, 2),
       "y_tokenize_ratio_anomaly": round(y_tokenize_ratio_anomaly, 2)
     },
     "score_x": {
