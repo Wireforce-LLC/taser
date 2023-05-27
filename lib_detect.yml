@@ -178,10 +178,8 @@ libs:
     name: RxJava
     description: Library for Reactive programming
     imports:
-      - 'io.reactivex.rxjava3.android.schedulers.AndroidSchedulers'
+      - 'io.reactivex.rxjava3.core.Observer'
       - 'io.reactivex.rxjava3.core.Observable'
-      - 'io.reactivex.rxjava3.disposables.Disposable'
-      - 'io.reactivex.rxjava3.schedulers.Schedulers'
 
     weight: 0.6
     significance: "high"

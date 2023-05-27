@@ -22,7 +22,7 @@ def main(prism_report: dict = None):
   count_fragments = 0
 
   if count_permissions > 0:
-    x_permissions = 3 / count_permissions
+    x_permissions = 1 / count_permissions
 
   else:
     x_permissions = 0.5
