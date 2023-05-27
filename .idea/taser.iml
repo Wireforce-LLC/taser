@@ -3,7 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
-      <excludeFolder url="file://$MODULE_DIR$/libs/detekt-cli-1.22.0/lib" />
+      <excludeFolder url="file://$MODULE_DIR$/libs/detekt/lib" />
       <excludeFolder url="file://$MODULE_DIR$/libs/layoutlib/.idea/codeStyles" />
       <excludeFolder url="file://$MODULE_DIR$/libs/layoutlib/sample/build" />
       <excludeFolder url="file://$MODULE_DIR$/libs/layoutlib/.gradle" />

@@ -1,13 +1,13 @@
 libs:
   linux:
-    detekt: ./libs/detekt-cli-1.22.0/bin/detekt-cli
+    detekt: ./libs/detekt/bin/detekt-cli
     adb: ./libs/adb
     micro: ./libs/micro-2.0.11_amd64/micro
     revisoro: ./libs/revisoro-1.4-SNAPSHOT.jar
     ro2: ./libs/Ro2-1.0-SNAPSHOT-all.jar
 
   macosx:
-    detekt: ./libs/detekt-cli-1.22.0/bin/detekt-cli
+    detekt: ./libs/detekt/bin/detekt-cli
     adb: ./libs/adb_mac_arm64
     micro: ./libs/micro-2.0.11_arm64/micro
     revisoro: ./libs/revisoro-1.4-SNAPSHOT.jar

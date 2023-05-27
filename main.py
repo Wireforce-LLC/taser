@@ -14,7 +14,6 @@ import adapter.telnet
 import adapter.cli
 import executor
 import inspectors
-import hybrid
 import main
 import plugins
 import pretty_traceback
@@ -87,6 +86,8 @@ if __name__ == '__main__':
   inspectors.init()
 
   if 'hybrid' in sys.argv:
+    import hybrid
+
     console.print("🔒 Execution of commands in Hybrid mode is blocked")
 
     hybrid.thread_main()
