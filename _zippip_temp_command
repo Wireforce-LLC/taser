@@ -1,1 +1,0 @@
-_json({'prismAll': plug_prism_map_index(), 'leans': plug_general_score_by_prism(plug_prism_map_index())})

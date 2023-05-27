@@ -62,6 +62,24 @@ libs:
     weight: 0.08
     significance: "middle"
 
+  firebase_remote_config_ktx:
+    name: Firebase Remote Config
+    description:
+    imports:
+      - 'com.google.firebase.remoteconfig.ktx.remoteConfig'
+
+    weight: 0.08
+    significance: "middle"
+
+  firebase_remote_config_java:
+    name: Firebase Remote Config
+    description:
+    imports:
+      - 'com.google.firebase.remoteconfig.remoteConfig'
+
+    weight: 0.08
+    significance: "middle"
+
   retrofit2:
     name: Retrofit
     description:
@@ -101,8 +119,14 @@ libs:
       - 'dagger.Module'
       - 'dagger.Provides'
 
+  compose:
+    name: Compose
+    description:
+    imports:
+      - 'androidx.compose.runtime.Composable'
+
     weight: 2
-    significance: "hot"
+    significance: "middle"
 
   react_native:
     name: React Native

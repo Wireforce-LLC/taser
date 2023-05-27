@@ -12,7 +12,6 @@ def main(prism_report: dict = None):
 
   fine = 0
 
-
   graphs = prism_report.get('nav_graphs_fragments', {})
   xml_colors = prism_report.get("colors_xml", {}).values()
 
@@ -65,7 +64,7 @@ def main(prism_report: dict = None):
     y_color = y_color + 0.06
 
   y_big_files_list = prism_report.get('tokenize', {}).get("files_lines", [])
-  
+
   for file in y_big_files_list:
     # 2500 * 1.8/2500
     y_big_files = y_big_files_list[file]
@@ -73,7 +72,6 @@ def main(prism_report: dict = None):
     if y_big_files > 2500:
       xy = y_big_files * (y_big_files / 2500 * 0.6) / 2500
       y_big_file_lines = y_big_file_lines + xy
-
 
   score = x_activity + x_fragments + x_tokens + x_string + x_permissions + x_libs_stack_weights
   fine = y_color + x_revisoro + y_tokenize_ratio_anomaly + y_big_file_lines
