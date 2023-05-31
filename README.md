@@ -19,3 +19,11 @@ git clone https://github.com/your-username/taser.git
 python3 -m pip install -r requirements.txt
 ```
 <sub><sup><b>Explanation of the code:</b> Install python deps from requirements.txt file</sup></sub>
+
+#### Usage
+To use Taser, navigate to the cloned repository directory and run the CLI commands.
+
+``` bash
+cd taser
+python3 taser.py
+```
