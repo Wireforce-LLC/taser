@@ -25,5 +25,5 @@ To use Taser, navigate to the cloned repository directory and run the CLI comman
 
 ``` bash
 cd taser
-python3 taser.py
+python3 main.py
 ```
