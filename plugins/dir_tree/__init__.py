@@ -1,7 +1,6 @@
 import pathlib
 
-from cp import set_cp, get_cp
-from rich import print
+from core.cp import get_cp
 from rich.filesize import decimal
 from rich.markup import escape
 from rich.text import Text

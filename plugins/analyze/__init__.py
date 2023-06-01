@@ -4,7 +4,7 @@ import re
 
 import openai
 
-from cp import get_cp
+from core.cp import get_cp
 
 openai.api_key = "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"
 

@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-from cp import get_cp
+from core.cp import get_cp
 from libs import get_lib_link
 
 PROMPT_TOOLKIT_ARGS = ""

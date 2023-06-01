@@ -1,4 +1,3 @@
-from cp import set_cp
 from download import download
 PROMPT_TOOLKIT_ARGS = ""
 

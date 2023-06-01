@@ -1,14 +1,9 @@
 import os.path
 import random
-import time
-from pprint import pprint
 
 import git
-from git import Repo, RemoteProgress
+from git import Repo
 from rich import progress, console
-from rich.progress import Progress
-from cp import set_cp
-from download import download
 
 PROMPT_TOOLKIT_ARGS = ""
 

@@ -1,7 +1,5 @@
-from pick import pick
 from rich.syntax import Syntax
 from rich.traceback import Traceback
-import sys
 
 from textual import events
 from textual.app import App, ComposeResult
@@ -9,7 +7,7 @@ from textual.containers import Container, VerticalScroll
 from textual.reactive import var
 from textual.widgets import DirectoryTree, Footer, Header, Static
 
-from cp import get_cp
+from core.cp import get_cp
 
 
 class CodeBrowser(App):

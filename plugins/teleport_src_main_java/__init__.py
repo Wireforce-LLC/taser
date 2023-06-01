@@ -1,6 +1,6 @@
 import os
 
-from cp import get_cp
+from core.cp import get_cp
 
 
 def main(dir: str = get_cp()):

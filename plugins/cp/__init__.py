@@ -1,4 +1,4 @@
-from cp import set_cp
+from core.cp import set_cp
 
 PROMPT_TOOLKIT_ARGS = ""
 

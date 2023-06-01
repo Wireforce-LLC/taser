@@ -1,6 +1,6 @@
 import os
 
-from cp import get_cp
+from core.cp import get_cp
 from inspectors import start_inspector
 from pick import pick
 

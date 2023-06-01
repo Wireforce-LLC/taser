@@ -5,7 +5,7 @@ from sys import platform
 
 libs_config = {}
 
-with open("./libs.yml", 'r') as document:
+with open("data/libs.yml", 'r') as document:
   libs_config = yaml.safe_load(document)
 
 

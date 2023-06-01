@@ -6,12 +6,11 @@ import time
 from prompt_toolkit.shortcuts import yes_no_dialog
 from rich.panel import Panel
 
-import plugins.source_map
 from rich.progress import Progress
 from rich.layout import Layout
 from rich import print
 
-from plugin_config import get_plugin_config
+from core.plugin_config import get_plugin_config
 import openai
 
 from sdk.layouts import get_list_layouts_path

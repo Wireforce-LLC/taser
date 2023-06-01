@@ -4,9 +4,7 @@ import os
 from prettytable import PrettyTable
 from termcolor import colored
 
-from cp import get_cp
-from sdk.manifest import read_activities
-from sdk.require_android_path import require_android_manifest_path
+from core.cp import get_cp
 
 
 def main():

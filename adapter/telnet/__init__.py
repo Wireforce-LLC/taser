@@ -1,15 +1,11 @@
 import contextlib
 import io
 import json
-import logging
 import os
 import shutil
 import socket
-import traceback
 from asyncio import run, Future
 from contextlib import closing
-from datetime import datetime, time
-from time import sleep
 from pythonping import ping
 
 import prompt_toolkit
@@ -36,13 +32,9 @@ from pygments.lexers import get_lexer_by_name
 from pygments.lexers.python import Python3Lexer
 from rich.console import Console
 
-import pprint
-
-from rich.traceback import Traceback
-
-import executor
+from core import executor
 from adapter import telnet
-from cp import format_cp
+from core.cp import format_cp
 
 console = Console()
 connections = []
@@ -63,7 +55,7 @@ style = Style.from_dict({
 
 telnet_configs = {}
 
-with open("./telnet.yml", 'r') as document:
+with open("data/telnet.yml", 'r') as document:
   telnet.telnet_configs = yaml.safe_load(document)
 
 

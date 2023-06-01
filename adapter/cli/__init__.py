@@ -1,7 +1,7 @@
 import sys
 import warnings
 
-import executor
+from core import executor
 
 warnings.simplefilter('ignore')
 

@@ -1,6 +1,6 @@
 from os import path
 
-from cp import get_cp
+from core.cp import get_cp
 from sdk.is_android_dir import is_android_dir
 from sdk.validation import find_files
 

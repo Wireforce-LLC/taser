@@ -4,7 +4,7 @@ import plugins.detect_all_imports
 
 lib_detect = {}
 
-with open("./lib_detect.yml", 'r') as document:
+with open("data/lib_detect.yml", 'r') as document:
   lib_detect = yaml.safe_load(document)
 
 def detect_stack(imports, stack_required):

@@ -2,8 +2,7 @@ import os
 import platform
 import subprocess
 
-from cp import get_cp
-from libs import get_lib_link
+from core.cp import get_cp
 from sdk.require_android_path import require_android_gradlew_path
 
 

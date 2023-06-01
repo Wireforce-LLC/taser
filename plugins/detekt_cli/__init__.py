@@ -1,9 +1,8 @@
 import os.path
-import random
 import subprocess
 from time import time
 
-from cp import get_cp
+from core.cp import get_cp
 from libs import get_lib_link
 
 detekt_lib_path = get_lib_link('detekt')

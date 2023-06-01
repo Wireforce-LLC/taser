@@ -1,21 +1,20 @@
 import copy
 import os
 from os import path
-from random import randint
 
-from prompt_toolkit import Application, HTML
+from prompt_toolkit import Application
 from prompt_toolkit.buffer import Buffer
 from prompt_toolkit.filters import Condition
 from prompt_toolkit.key_binding import KeyBindings, KeyPressEvent
 from prompt_toolkit.key_binding.bindings.focus import focus_next
 from prompt_toolkit.layout import ConditionalContainer, VSplit, Window, HSplit, Layout, FormattedTextControl, Float, \
-  CompletionsMenu, WindowAlign, ScrollablePane, Dimension, Container, VerticalAlign, HorizontalAlign
+  CompletionsMenu, WindowAlign, ScrollablePane, VerticalAlign
 from prompt_toolkit.lexers import DynamicLexer, PygmentsLexer
 from prompt_toolkit.output import ColorDepth
 from prompt_toolkit.styles import Style
-from prompt_toolkit.widgets import SearchToolbar, TextArea, MenuContainer, MenuItem, Frame, Button, Box
+from prompt_toolkit.widgets import SearchToolbar, TextArea, MenuContainer, MenuItem, Button
 
-from cp import get_cp, format_cp
+from core.cp import get_cp, format_cp
 from plugins import source_map
 
 PROMPT_TOOLKIT_ARGS = ""

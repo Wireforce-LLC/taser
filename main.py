@@ -1,42 +1,26 @@
-import importlib
-import os
-import pkgutil
 import sys
-import traceback
-from pprint import pprint
-from math import *
 
-import yaml
-from prompt_toolkit.lexers import PygmentsLexer
-from pygments.lexers.python import Python3Lexer
-
-import adapter.telnet
-import adapter.cli
-import executor
-import inspectors
-import main
-import plugins
 import pretty_traceback
 import pyfiglet
-import adb
-import sdk
-import libs
-
-
-from rich import pretty
+import yaml
+from frosch import hook, print_exception
 from prompt_toolkit import PromptSession
 from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
 from prompt_toolkit.clipboard.pyperclip import PyperclipClipboard
 from prompt_toolkit.completion import NestedCompleter
 from prompt_toolkit.history import FileHistory
+from prompt_toolkit.lexers import PygmentsLexer
 from prompt_toolkit.output import ColorDepth
 from prompt_toolkit.shortcuts import CompleteStyle
 from prompt_toolkit.styles import Style
-from pygments.lexers import get_lexer_by_name
-
-from cp import format_cp, get_cp
-from frosch import hook, print_exception
+from pygments.lexers.python import Python3Lexer
+from rich import pretty
 from rich.console import Console
+
+import adapter.telnet
+from core import executor
+import inspectors
+from core.cp import format_cp
 
 hook()
 
@@ -73,7 +57,7 @@ if __name__ == '__main__':
 
   print("")
 
-  with open("./lib_detect.yml", 'r') as document:
+  with open("data/lib_detect.yml", 'r') as document:
     console.print(f"The system is able to identify [orange]{len(yaml.safe_load(document).get('libs').keys())}[/] technologies that were used in the source code and assess their importance")
 
   with open("./mount/unicorn.txt", 'r') as document:
@@ -85,12 +69,6 @@ if __name__ == '__main__':
 
   inspectors.init()
 
-  if 'hybrid' in sys.argv:
-    import hybrid
-
-    console.print("🔒 Execution of commands in Hybrid mode is blocked")
-
-    hybrid.thread_main()
 
   if 'telnet' in sys.argv:
     console.print("🌍 Expansion to the world!!! You use telnet mode. ")
@@ -125,7 +103,7 @@ if __name__ == '__main__':
       )
 
       try:
-        if text and not 'hybrid' in sys.argv:
+        if text in sys.argv:
           exclude = executor.input_execute(text)
 
           if not isinstance(exclude, list):

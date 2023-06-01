@@ -11,7 +11,7 @@ from rich.progress import Progress
 from rich.layout import Layout
 from rich import print
 
-from plugin_config import get_plugin_config
+from core.plugin_config import get_plugin_config
 import openai
 
 

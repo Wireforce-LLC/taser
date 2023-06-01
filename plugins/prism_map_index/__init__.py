@@ -1,8 +1,6 @@
 import json
 import os
 
-import pandas as pd
-
 import plugins.source_map
 
 import plugins.impls_index
@@ -16,14 +14,14 @@ import plugins.revesiro
 import plugins.fast_impl
 
 import sdk.manifest
-from cp import get_cp
+from core.cp import get_cp
 from sdk import nav_graph
 from sdk.build_gradle_parser import get_namespace
 from sdk.layoutlib import analyze_xml
 from sdk.layouts import get_list_layouts_path
 from sdk.nav_graph import get_nav_graph_fragments
 from sdk.require_android_path import require_android_colors_xml_path, require_android_strings_xml_path, \
-  require_android_nav_graphs_path, require_android_package_by_root_path
+  require_android_nav_graphs_path
 from sdk.strings import get_strings
 from sdk.theme import get_colors
 

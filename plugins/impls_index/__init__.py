@@ -1,16 +1,14 @@
 import json
-import os
 import platform
 import re
 import subprocess
-from pprint import pprint
 
 import packaging
 from packaging import version
 
 import requests
 
-from cp import get_cp
+from core.cp import get_cp
 from sdk.require_android_path import require_android_gradlew_path
 
 

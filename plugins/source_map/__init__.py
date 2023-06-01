@@ -2,7 +2,7 @@ import glob
 import json
 import os
 
-from cp import get_cp
+from core.cp import get_cp
 from sdk.require_android_path import is_android_dir
 
 

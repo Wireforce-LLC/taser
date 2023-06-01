@@ -1,10 +1,6 @@
-from os import path
+from core.cp import set_cp
 
 PROMPT_TOOLKIT_ARGS = ""
 
 def main(realpath):
-  path_to = path.abspath(path.normpath(path.realpath(realpath)))
-
-  with open(".cpath", 'w+') as file:
-    file.write(path_to)
-    file.close()
+  set_cp(realpath)
