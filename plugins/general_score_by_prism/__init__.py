@@ -1,16 +1,6 @@
-import random
-
-# Formula
-# x_activity = {count_activity} / 3
-# x_impl = 1 - {old_impl_count} / {all_impl}
-# x_tokens = {x_tokens} / {avg_tokens}
-# x_constrastnost = if Yes 1 else 0
-
 def main(prism_report: dict = None):
   if hasattr(globals(), "__prism_map_index__") and not prism_report:
     prism_report = globals()['__prism_map_index__']
-
-  fine = 0
 
   graphs = prism_report.get('nav_graphs_fragments', {})
   xml_colors = prism_report.get("colors_xml", {}).values()
@@ -26,9 +16,15 @@ def main(prism_report: dict = None):
   else:
     x_permissions = 0.5
 
-  x_tokens = prism_report.get('tokenize', {}).get("count_tokens", 0) / 1250
-  x_string = len(prism_report.get('strings_xml', {}).values()) * 0.005
-  x_libs_stack_weights = sum(list(map(lambda x: x.get('lib', {}).get('weight'), prism_report.get('libs_stack', []))))
+  token_count = prism_report.get('tokenize', {}).get("count_tokens", 0)
+  x_tokens = token_count / 1250
+
+  strings_xml_values = prism_report.get('strings_xml', {}).values()
+  x_string = len(strings_xml_values) * 0.005
+
+  libs_stack = prism_report.get('libs_stack', [])
+  libs_stack_weights = sum(list(map(lambda x: x.get('lib', {}).get('weight', 0), libs_stack)))
+  x_libs_stack_weights = libs_stack_weights
 
   if graphs:
     for graph in graphs:
