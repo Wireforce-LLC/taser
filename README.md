@@ -1,6 +1,8 @@
-<center>
- <img src="https://i.postimg.cc/0y0fhXQJ/Frame-24.png" width="240px"/>
-</center>
+<p align="center">
+    <center>
+     <img src="https://i.postimg.cc/0y0fhXQJ/Frame-24.png" width="240px"/>
+    </center>
+</p>
 
 [![Build Status](https://img.shields.io/github/forks/https://github.com/Wireforce-LLC/taser.svg?style=for-the-badge)](https://github.com/https://github.com/Wireforce-LLC/taser)
 [![Build Status](https://img.shields.io/github/stars/https://github.com/Wireforce-LLC/taser.svg?style=for-the-badge)](https://github.com/https://github.com/Wireforce-LLC/taser)
