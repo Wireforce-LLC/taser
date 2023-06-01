@@ -1,7 +1,7 @@
 import importlib
 import pkgutil
 import inspectors
-from cp import get_cp
+from core.cp import get_cp
 
 
 def iter_namespace(ns_pkg):
