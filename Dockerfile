@@ -19,4 +19,4 @@ RUN apt-get -y install git adb
 COPY . .
 
 # command to run when image is executed inside a container
-CMD [ "adb", "start-server", "&&", "python3", "main.py", "hybrid" ]
+CMD [ "python3", "main.py" ]
