@@ -5,7 +5,7 @@ from sys import platform
 
 plugin_configs = {}
 
-with open("./plugins.yml", 'r') as document:
+with open("data/plugins.yml", 'r') as document:
   plugin_configs = yaml.safe_load(document)
 
 
