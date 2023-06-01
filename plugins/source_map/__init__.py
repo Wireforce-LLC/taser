@@ -54,6 +54,8 @@ def main(operation='index'):
       "fkt": files_kotlin
     }
 
-    open(source_map_file, 'w+').write(json.dumps(obj))
+    with open(source_map_file, 'w+') as file:
+        file.write(json.dumps(obj))
+        file.close()
 
     return obj
