@@ -1,4 +1,5 @@
-# Taser
+<img src="https://i.postimg.cc/0y0fhXQJ/Frame-24.png" width="240px"/>
+
 Taser is a Python-based system designed for automatic analysis, rating, comparison, and parsing of Android source code. It provides a command-line interface (CLI) for easy interaction with the system.
 
 ### Features

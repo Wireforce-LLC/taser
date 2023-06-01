@@ -103,7 +103,7 @@ if __name__ == '__main__':
       )
 
       try:
-        if text in sys.argv:
+        if text:
           exclude = executor.input_execute(text)
 
           if not isinstance(exclude, list):

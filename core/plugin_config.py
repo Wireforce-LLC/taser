@@ -1,7 +1,4 @@
-import os.path
-
 import yaml
-from sys import platform
 
 plugin_configs = {}
 
