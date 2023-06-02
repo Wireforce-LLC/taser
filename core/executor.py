@@ -65,6 +65,7 @@ def initPlugins(includesPlugins = []):
         env['plug_%s' % plug.replace('plugins.', '')] = proxy(plug)
         env['_%s' % plug.replace('plugins.', '')] = proxy(plug)
 
+
 def input_execute(text: str):
     env['PWD'] = get_cp()
 

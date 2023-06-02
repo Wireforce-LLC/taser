@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
     if 'input' in sys.argv:
         text = get_text_after_input(sys.argv)
-        print(executor.input_execute(text))
+        executor.input_execute(text)
         exit(0)
 
     while True:
@@ -140,7 +140,7 @@ if __name__ == '__main__':
                 )
 
             else:
-                text = input()
+                exit(0)
 
             try:
                 if text and 'noPromptExecutor' not in sys.argv:

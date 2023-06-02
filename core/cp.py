@@ -73,9 +73,6 @@ def set_cp(cp):
     if not os.listdir(cp):
         return False
 
-    if " " in cp:
-        print("WARNING!! Your folder contains spaces. Some plugins may not work correctly")
-
     path_to = path.abspath(path.normpath(path.realpath(cp)))
 
     write_taser_pwd(path_to)
