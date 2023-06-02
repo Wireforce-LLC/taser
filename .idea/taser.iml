@@ -8,6 +8,8 @@
       <excludeFolder url="file://$MODULE_DIR$/libs/layoutlib/sample/build" />
       <excludeFolder url="file://$MODULE_DIR$/libs/layoutlib/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/mount" />
+      <excludeFolder url="file://$MODULE_DIR$/main.build" />
+      <excludeFolder url="file://$MODULE_DIR$/main.dist" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

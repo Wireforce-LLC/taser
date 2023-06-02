@@ -163,3 +163,7 @@ cython_debug/
 #.idea/
 
 mount
+main.dist
+main.build
+main.bin
+main.c

@@ -14,8 +14,7 @@ def read_taser_pwd():
         The content of the ".taser_pwd" file or "~" if the file doesn't exist.
     """
 
-    temp_dir = tempfile.gettempdir()
-    file_path = os.path.join(temp_dir, ".taser_pwd")
+    file_path = os.path.join(_temp_dir, ".taser_pwd")
 
     if os.path.isfile(file_path):
         with open(file_path, 'r') as file:
@@ -33,8 +32,7 @@ def write_taser_pwd(data):
       data: The data to be written to the file.
     """
 
-    temp_dir = tempfile.gettempdir()
-    file_path = os.path.join(temp_dir, ".taser_pwd")
+    file_path = os.path.join(_temp_dir, ".taser_pwd")
 
     with open(file_path, 'w') as file:
         file.write(data)
