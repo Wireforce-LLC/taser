@@ -50,7 +50,7 @@ def main(path=get_cp(), inShell=True):
             package_name = command[2].replace("package:", '')
             percent_match = float(command[3].replace("percentMatch:", ''))
 
-            if file_name in ["Shape.kt", "Type.kt", "Theme.kt"]:
+            if file_name in ["Shape.kt", "Type.kt", "Theme.kt", "Color.kt"]:
               continue
 
             source["warn_files"].append({

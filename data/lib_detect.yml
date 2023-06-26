@@ -125,7 +125,7 @@ libs:
     imports:
       - 'androidx.compose.runtime.Composable'
 
-    weight: 2
+    weight: 3.5
     significance: "middle"
 
   tenjin:
