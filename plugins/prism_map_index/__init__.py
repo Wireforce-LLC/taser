@@ -3,7 +3,6 @@ import os
 
 import plugins.detect_libs_stack
 import plugins.fast_impl
-import plugins.impls_index
 import plugins.parse_layout
 import plugins.revisoro
 import plugins.source_creation_time
@@ -53,6 +52,23 @@ def main(dir=get_cp()):
             fragments = get_nav_graph_fragments(graph)
 
             nav_graphs_fragments[os.path.basename(graph)] = fragments
+
+    if not sum(map(lambda x: len(x), nav_graphs_fragments.values())):
+        filtered_files = [os.path.basename(file) for file in layouts_xmls if
+                          os.path.basename(file).startswith('fragment_') and file.endswith('.xml')]
+
+        result_list = []
+
+        for file_name in filtered_files:
+            file_dict = {
+                "name": file_name,
+                "label": file_name,
+                "id": -1,
+                "layout": file_name
+            }
+            result_list.append(file_dict)
+
+        nav_graphs_fragments["OUTSIDE"] = result_list
 
     if path_colors:
         colors = get_colors(path_colors)
